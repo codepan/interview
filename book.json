@@ -1,0 +1,13 @@
+{
+  "root": "./src",
+  "title": "前端面试题集锦",
+  "description": "轻松初始化一套gitbook项目",
+  "plugins": [
+    "page-treeview"
+  ],
+  "pluginsConfig": {
+    "page-treeview": {
+      "copyright": ""
+    }
+  }
+}

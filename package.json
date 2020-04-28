@@ -1,0 +1,26 @@
+{
+  "name": "interview",
+  "version": "1.0.0",
+  "description": "面试题总结",
+  "author": "codepan",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gitbook serve",
+    "build": "node build.js",
+    "deploy": "node deploy.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "ftp": "^0.3.10",
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-page-treeview": "^3.0.1",
+    "gitbook-plugin-toc": "^0.0.2",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^6.0.0",
+    "gulp-uglify": "^3.0.2",
+    "inquirer": "^6.4.1",
+    "shelljs": "^0.8.3"
+  }
+}
