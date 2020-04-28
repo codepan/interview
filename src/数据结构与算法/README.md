@@ -232,4 +232,46 @@ for (let key of Reflect.ownKeys(cloneObj)) {
 #### 一个url后面好多key-value。如localhost?key=val&key2=val2&key3=&key4&，封装一个函数getParam('key')，通过key获得相应等号后面的值
 ```js
 ```
+#### 获取字符串中不重复的最大子串的长度
+```js
+function getLengthOfMaxSubstrAndNorepeat (str) {
+  if (!str) return 0
+
+  let findedChars = []
+  let lengthTotals = [] // 统计每一次循环找到的最大不重复子串的长度
+  const findMaxInArray = arr => Math.max.apply(null, arr)
+
+  function next (startIndex) {
+    if (startIndex === str.length - 1) {
+      return
+    }
+    for (let i = startIndex; i < str.length; i++) {
+      const currentChar = str[i]
+      if (!findedChars.includes(currentChar)) {
+        findedChars.push(currentChar)
+      } else {
+        lengthTotals.push(findedChars.length)
+        findedChars = []
+        const maxLength = findMaxInArray(lengthTotals)
+        if (maxLength === str.length - 1) {
+          return
+        }
+        return next(++startIndex)
+      }
+    }
+
+    if (findedChars.length === str.length - startIndex) {
+      lengthTotals.push(str.length - startIndex)
+      return
+    }
+  }
+  next(0)
+
+  return findMaxInArray(lengthTotals)
+}
+
+
+const str = 'ab'
+console.log(getLengthOfMaxSubstrAndNorepeat(str))
+```
 

@@ -20,14 +20,14 @@
   * [正则](javascript/正则.md)
   * [其它](javascript/其它.md)
 * 数据结构与算法
-  * [数据结构与算法](algorithm/README.md)
-  * [数组相关算法](algorithm/数组相关算法.md)
-  * [树相关算法](algorithm/树相关算法.md)
+  * [数据结构与算法](数据结构与算法/README.md)
+  * [数组相关算法](数据结构与算法/数组相关算法.md)
+  * [树相关算法](数据结构与算法/树相关算法.md)
 * [NodeJS](NodeJS.md)
 * [Webpack](Webpack.md)
 * [Vue](Vue.md)
 * 网络
-  * [cookie/session/token](network/cookie-session-token.md))
+  * [cookie/session/token](网络/cookie-session-token.md))
 * [性能优化](性能优化.md)
 * [设计模式](设计模式.md)
 * [小程序](小程序.md)
