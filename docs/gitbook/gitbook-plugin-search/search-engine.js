@@ -1,1 +1,50 @@
-require(["gitbook","jquery"],function(r,n){var i=null,t=!1;r.search={setEngine:function(n,e){t=!1,i=new n(e),function(n){if(!i)throw new Error("No engine set for research. Set an engine using gitbook.research.setEngine(Engine).");i.init(n).then(function(){t=!0,r.events.trigger("search.ready")})}(e)},getEngine:function(){return i?i.name:null},query:function(n,e,r){if(!t)throw new Error("Search has not been initialized");return i.search(n,e,r)},isInitialized:function(){return t}}});
+require([
+    'gitbook',
+    'jquery'
+], function(gitbook, $) {
+    // Global search objects
+    var engine      = null;
+    var initialized = false;
+
+    // Set a new search engine
+    function setEngine(Engine, config) {
+        initialized = false;
+        engine      = new Engine(config);
+
+        init(config);
+    }
+
+    // Initialize search engine with config
+    function init(config) {
+        if (!engine) throw new Error('No engine set for research. Set an engine using gitbook.research.setEngine(Engine).');
+
+        return engine.init(config)
+        .then(function() {
+            initialized = true;
+            gitbook.events.trigger('search.ready');
+        });
+    }
+
+    // Launch search for query q
+    function query(q, offset, length) {
+        if (!initialized) throw new Error('Search has not been initialized');
+        return engine.search(q, offset, length);
+    }
+
+    // Get stats about search
+    function getEngine() {
+        return engine? engine.name : null;
+    }
+
+    function isInitialized() {
+        return initialized;
+    }
+
+    // Initialize gitbook.search
+    gitbook.search = {
+        setEngine:     setEngine,
+        getEngine:     getEngine,
+        query:         query,
+        isInitialized: isInitialized
+    };
+});

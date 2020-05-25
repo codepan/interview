@@ -1,1 +1,59 @@
-require(["gitbook","jquery"],function(r,s){function n(){this.index=null,this.store={},this.name="LunrSearchEngine"}n.prototype.init=function(){var t=this,n=s.Deferred();return s.getJSON(r.state.basePath+"/search_index.json").then(function(e){t.index=lunr.Index.load(e.index),t.store=e.store,n.resolve()}),n.promise()},n.prototype.search=function(e,t,n){var r=this,i=[];return this.index&&(i=s.map(this.index.search(e),function(e){var t=r.store[e.ref];return{title:t.title,url:t.url,body:t.summary||t.body}})),s.Deferred().resolve({query:e,results:i.slice(0,n),count:i.length}).promise()},r.events.bind("start",function(e,t){r.search.getEngine()||r.search.setEngine(n,t)})});
+require([
+    'gitbook',
+    'jquery'
+], function(gitbook, $) {
+    // Define global search engine
+    function LunrSearchEngine() {
+        this.index = null;
+        this.store = {};
+        this.name = 'LunrSearchEngine';
+    }
+
+    // Initialize lunr by fetching the search index
+    LunrSearchEngine.prototype.init = function() {
+        var that = this;
+        var d = $.Deferred();
+
+        $.getJSON(gitbook.state.basePath+'/search_index.json')
+        .then(function(data) {
+            // eslint-disable-next-line no-undef
+            that.index = lunr.Index.load(data.index);
+            that.store = data.store;
+            d.resolve();
+        });
+
+        return d.promise();
+    };
+
+    // Search for a term and return results
+    LunrSearchEngine.prototype.search = function(q, offset, length) {
+        var that = this;
+        var results = [];
+
+        if (this.index) {
+            results = $.map(this.index.search(q), function(result) {
+                var doc = that.store[result.ref];
+
+                return {
+                    title: doc.title,
+                    url: doc.url,
+                    body: doc.summary || doc.body
+                };
+            });
+        }
+
+        return $.Deferred().resolve({
+            query: q,
+            results: results.slice(0, length),
+            count: results.length
+        }).promise();
+    };
+
+    // Set gitbook research
+    gitbook.events.bind('start', function(e, config) {
+        var engine = gitbook.search.getEngine();
+        if (!engine) {
+            gitbook.search.setEngine(LunrSearchEngine, config);
+        }
+    });
+});
