@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "node scripts/dev.js",
     "build": "node scripts/build.js",
-    "deploy": "node scripts/deploy.js",
-    "release": "node scripts/release.js"
+    "deploy": "node scripts/deploy.js"
   },
   "dependencies": {
     "chalk": "^2.4.2",
