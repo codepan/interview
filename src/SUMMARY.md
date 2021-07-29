@@ -1,3 +1,12 @@
+<!--
+ * @项目名称: monitor-resource-web
+ * @文件名: filename
+ * @版权保护声明: tecent.Co.Ltd
+ * @内容描述: file content
+ * @创建者: ppennzhou
+ * @创建时间: 2020-07-13 16:25:17
+ * @修订记录: 
+-->
 * [HTML](HTML.md)
 * [CSS](CSS.md)
 * JavaScript
@@ -17,7 +26,7 @@
   * [闭包](javascript/闭包.md)
   * [作用域链变量提升](javascript/作用域链变量提升.md)
   * [实现构造函数不用new关键字会报错](javascript/实现构造函数不用new关键字会报错.md)
-  * [图片上传加预览](javascript/图片上传加预览.md)
+  * [上传与下载](javascript/上传与下载.md)
   * [正则](javascript/正则.md)
   * [其它](javascript/其它.md)
 * 数据结构与算法
@@ -29,6 +38,7 @@
 * [Vue](Vue.md)
 * 网络
   * [cookie/session/token](网络/cookie-session-token.md))
+  * [从输入URL到看到页面发生了什么](网络/从输入URL到看到页面发生了什么.md))
 * [性能优化](性能优化.md)
 * [设计模式](设计模式.md)
 * [小程序](小程序.md)
