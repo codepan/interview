@@ -28,6 +28,7 @@
   * [实现构造函数不用new关键字会报错](javascript/实现构造函数不用new关键字会报错.md)
   * [上传与下载](javascript/上传与下载.md)
   * [正则](javascript/正则.md)
+  * [Promise面试题](javascript/Promise面试题.md)
   * [其它](javascript/其它.md)
 * 数据结构与算法
   * [数据结构与算法](数据结构与算法/README.md)

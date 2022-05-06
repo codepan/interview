@@ -1,0 +1,1 @@
+异步至 [手写Promise中的第4章节](http://www.codepan.top/promise/chapter4)
